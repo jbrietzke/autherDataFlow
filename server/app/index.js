@@ -29,7 +29,6 @@ app.use('/api', function (req, res, next) {
   next();
 });
 
-
 app.use('/api', require('../api/api.router'));
 
 app.post('/login', function (req, res, next) {
