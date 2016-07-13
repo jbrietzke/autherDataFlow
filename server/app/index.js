@@ -18,14 +18,14 @@ app.use(require('./request-state.middleware'));
 
 // place right after the session setup middleware
 app.use(function (req, res, next) {
-  console.log('session', req.session);
+  //console.log('session', req.session);
   next();
 });
 
 
 app.use('/api', function (req, res, next) {
   if (!req.session.counter) req.session.counter = 0;
-  console.log('\n\ncounter', ++req.session.counter);
+  //console.log('\n\ncounter', ++req.session.counter);
   next();
 });
 

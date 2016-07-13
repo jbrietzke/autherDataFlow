@@ -32,6 +32,14 @@ router.post('/', function (req, res, next) {
   .catch(next);
 });
 
+
+router.get('/logout', function (req, res, next) {
+  console.log("first session", req.session);
+  req.session.destroy();
+  console.log("after destroyed", req.session);
+  res.send(200);
+});
+
 router.get('/:id', function (req, res, next) {
   req.requestedUser.reload({include: [Story]})
   .then(function (requestedUser) {
@@ -55,5 +63,7 @@ router.delete('/:id', function (req, res, next) {
   })
   .catch(next);
 });
+
+
 
 module.exports = router;

@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('AuthFactory', function($http){
+app.factory('AuthFactory', function($http, $state){
 
   var Auth = {};
   // Login.url = '/login';
@@ -31,6 +31,18 @@ app.factory('AuthFactory', function($http){
       })
   }
 
-  return Auth;
 
+  Auth.logout = function(){
+    console.log("hello");
+    return $http({
+      method: 'GET',
+      url: '/api/users/logout'
+    })
+
+  }
+
+
+
+
+  return Auth;
 })
